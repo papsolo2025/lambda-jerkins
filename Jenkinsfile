@@ -12,28 +12,17 @@ pipeline {
             }
         }
 
-        stage('Change Directory') {
-            steps {
-                dir('lambda-jerkins') {
-                    sh 'ls -la'
-                }
-            }
-        }
 
         stage('Terraform Init') {
             steps {
-                dir('lambda-jerkins') {
                     sh 'terraform init'
                 }
             }
-        }
 
         stage('Terraform Action') {
             steps {
-                dir('lambda-jerkins') {
                     sh "terraform ${params.TERRAFORM_COMMAND}"
                 }
             }
-        }
     }
 }
