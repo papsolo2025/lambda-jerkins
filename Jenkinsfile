@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/papsolo2025/lambda-jerkins.git'
+        git branch: 'main', credentialsId: 'jenkins-id', url: 'https://github.com/papsolo2025/lambda-jerkins.git'  
             }
         }
 
